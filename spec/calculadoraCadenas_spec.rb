@@ -12,13 +12,18 @@ RSpec.describe "Calculadora De Cadenas" do
     it "Deberia devolver el numero 15 para la cadena 1, 2,4 y 8" do
         expect(calcularCadena("1,2,4,8")).to eq(15)
     end
+    it "Deberia devolver el numero 2 para la cadena 2, 1001" do
+        expect(calcularCadena("2,1000")).to eq(2)
+    end
 end
 
 def calcularCadena(cadena)
     numero=cadena.split(',')
     suma=0
     numero.each do|numero|
-        suma = suma + numero.to_i
+        if(numero.to_i <1000)
+            suma = suma + numero.to_i
+        end
     end
     return suma
 end
